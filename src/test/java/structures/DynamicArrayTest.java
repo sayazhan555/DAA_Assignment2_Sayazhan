@@ -114,4 +114,24 @@ class DynamicArrayTest {
         }
     }
 
+    @Test
+    void testRandomData() {
+        DynamicArray array = new DynamicArray();
+        java.util.ArrayList<Integer> expected = new java.util.ArrayList<>();
+        java.util.Random random = new java.util.Random(42);
+
+        for (int i = 0; i < 100; i++) {
+            int value = random.nextInt(1000);
+
+            array.add(value);
+            expected.add(value);
+        }
+
+        assertEquals(expected.size(), array.size());
+
+        for (int i = 0; i < expected.size(); i++) {
+            assertEquals(expected.get(i), array.get(i));
+        }
+    }
+
 }
